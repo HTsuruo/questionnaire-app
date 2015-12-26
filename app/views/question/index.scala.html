@@ -1,0 +1,70 @@
+@(userId :Long, q: models.Question, qList: HashMap[Integer,String])
+
+@import utils._
+
+@main("設問") {
+	@if(q!=null){
+	    <h2>テスト@{q.questionId}</h2>
+	    <div class="introduction">
+	    	<pre>@QuestionUtil.getIntroTxtByQId(q.questionId,userId)</pre>
+	    </div>
+	    	<div class="question-contents">
+	    		<form action="/question/submit/@{userId}/@{q.questionId}" method="post">
+			    	@if(qList!=null && qList.size>0){
+			    		@for((key,value) <- qList){
+			    			<div style="color:#119d55;font-weight:bold;font-size:18px;">Q.@{key}</div>
+			    			@if(q.questionId==1 && key==1){
+			    				<div style="font-weight:normal;padding-left:10px;">@{value}</div>
+			    				<textarea name="q@key" class="form-control" required="required" placeholder="ex)週に3回程度、30分間のランニングを行っている。" style="width:100%;height:100px;"></textarea>
+			    			}else{
+				    			<table class="q-table table table-striped">
+				    				<thead>
+				 			    		<th style="font-weight:normal;padding-left:10px;">@{value}</th>
+					 			    </thead>
+					 			    <tbody>
+					 			    @for((v,txt) <- QuestionUtil.getAnswerChoices(q.questionId,key)){
+					 			    		<tr class="q"><td><input type="radio" name="q@key" value="@v" required="required">@txt</td></tr>
+					 			    }
+					 			    </tbody>
+				 			    </table>
+			 			    }
+			 			    <hr>
+			    		}
+			    		@if(q.questionId!=4){
+				    		<button type="submit" class="btn btn-lg btn-success col-xs-offset-2 col-xs-8" style="margin-bottom:50px;margin-top:50px;">
+								<i class="glyphicon glyphicon-ok-sign"></i> 回答を完了する
+							</button>
+						}
+			    	}
+			    	<!-- 自己開示テストの場合 -->
+			    	@if(q.questionId==4){
+			    		<div class="introduction">
+			    			<pre>@QuestionUtil.getIntroTxtByQId(q.questionId+10,userId)</pre>
+			    		</div>
+				    	@if(qList!=null && qList.size>0){
+				    		@for((key,value) <- qList){
+				    			<div style="color:#119d55;font-weight:bold;font-size:18px;">Q.@{key}</div>
+				    			<table class="q-table table table-striped">
+				    				<thead>
+				 			    		<th style="font-weight:normal;padding-left:10px;">@{value}</th>
+					 			    </thead>
+					 			    <tbody>
+					 			    @for((v,txt) <- QuestionUtil.getAnswerChoices(q.questionId,key)){
+					 			    		<tr class="q"><td><input type="radio" name="q2_@key" value="@v" required="required">@txt</td></tr>
+					 			    }
+					 			    </tbody>
+				 			    </table>
+				 			    <hr>
+				    		}
+				    		<button type="submit" class="btn btn-lg btn-success col-xs-offset-2 col-xs-8" style="margin-bottom:50px;margin-top:50px;">
+								<i class="glyphicon glyphicon-ok-sign"></i> 回答を完了する
+							</button>
+				    	}
+			    	}
+		    	</form>
+	    	</div>
+	   	</button>
+   	}else{
+   		<p>設問内容がありません。管理画面から登録して下さい。</p>
+   	}
+}

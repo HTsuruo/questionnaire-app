@@ -1,0 +1,13 @@
+[0m[[0mdebug[0m] [0mCopy resource mappings: [0m
+[0m[[0mdebug[0m] [0m	(/Users/Tsuruoka/Documents/PlayFramework/questionnaire-app/conf/application.conf,/Users/Tsuruoka/Documents/PlayFramework/questionnaire-app/target/scala-2.11/classes/application.conf)[0m
+[0m[[0mdebug[0m] [0m	(/Users/Tsuruoka/Documents/PlayFramework/questionnaire-app/conf/evolutions,/Users/Tsuruoka/Documents/PlayFramework/questionnaire-app/target/scala-2.11/classes/evolutions)[0m
+[0m[[0mdebug[0m] [0m	(/Users/Tsuruoka/Documents/PlayFramework/questionnaire-app/conf/init,/Users/Tsuruoka/Documents/PlayFramework/questionnaire-app/target/scala-2.11/classes/init)[0m
+[0m[[0mdebug[0m] [0m	(/Users/Tsuruoka/Documents/PlayFramework/questionnaire-app/conf/logback.xml,/Users/Tsuruoka/Documents/PlayFramework/questionnaire-app/target/scala-2.11/classes/logback.xml)[0m
+[0m[[0mdebug[0m] [0m	(/Users/Tsuruoka/Documents/PlayFramework/questionnaire-app/conf/routes,/Users/Tsuruoka/Documents/PlayFramework/questionnaire-app/target/scala-2.11/classes/routes)[0m
+[0m[[0mdebug[0m] [0m	(/Users/Tsuruoka/Documents/PlayFramework/questionnaire-app/conf/evolutions/default,/Users/Tsuruoka/Documents/PlayFramework/questionnaire-app/target/scala-2.11/classes/evolutions/default)[0m
+[0m[[0mdebug[0m] [0m	(/Users/Tsuruoka/Documents/PlayFramework/questionnaire-app/conf/evolutions/default/1.sql,/Users/Tsuruoka/Documents/PlayFramework/questionnaire-app/target/scala-2.11/classes/evolutions/default/1.sql)[0m
+[0m[[0mdebug[0m] [0m	(/Users/Tsuruoka/Documents/PlayFramework/questionnaire-app/conf/init/answer_choices_list.csv,/Users/Tsuruoka/Documents/PlayFramework/questionnaire-app/target/scala-2.11/classes/init/answer_choices_list.csv)[0m
+[0m[[0mdebug[0m] [0m	(/Users/Tsuruoka/Documents/PlayFramework/questionnaire-app/conf/init/panas.csv,/Users/Tsuruoka/Documents/PlayFramework/questionnaire-app/target/scala-2.11/classes/init/panas.csv)[0m
+[0m[[0mdebug[0m] [0m	(/Users/Tsuruoka/Documents/PlayFramework/questionnaire-app/conf/init/question_list.csv,/Users/Tsuruoka/Documents/PlayFramework/questionnaire-app/target/scala-2.11/classes/init/question_list.csv)[0m
+[0m[[0mdebug[0m] [0m	(/Users/Tsuruoka/Documents/PlayFramework/questionnaire-app/conf/init/question_list_old.csv,/Users/Tsuruoka/Documents/PlayFramework/questionnaire-app/target/scala-2.11/classes/init/question_list_old.csv)[0m
+[0m[[0mdebug[0m] [0m	(/Users/Tsuruoka/Documents/PlayFramework/questionnaire-app/conf/init/who5.csv,/Users/Tsuruoka/Documents/PlayFramework/questionnaire-app/target/scala-2.11/classes/init/who5.csv)[0m

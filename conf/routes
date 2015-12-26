@@ -1,0 +1,20 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /                           controllers.Application.index()
+GET     /user/:id                   controllers.UserController.index(id:Long)
+GET     /login                      controllers.UserController.login()
+POST    /user/submit                controllers.UserController.submit()
+GET     /question/:id/:id2          controllers.QuestionController.index(id:Long,id2:Long)
+POST    /question/submit/:id/:id2   controllers.QuestionController.submit(id:Long,id2:Long)
+
+#管理画面
+GET     /admin                       controllers.admin.AdminController.index()
+GET     /admin/initial               controllers.admin.AdminController.setInitialData()
+POST    /admin/download/:id          controllers.admin.AdminController.download(id:Long)
+POST    /admin/user/delete/:id       controllers.admin.AdminController.deleteUser(id:Long)
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)

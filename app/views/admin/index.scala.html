@@ -1,0 +1,47 @@
+@(message: String=null, userList: List[models.UserModel])
+
+
+@main("管理画面ページ") {
+	<div class="text-center">
+	    <h2 class="btn-margin">管理画面</h2>
+	    
+	    @if(userList!=null && userList.size>0){
+    	<div class="col-xs-offset-2 col-xs-8 col-md-offset-4 col-md-4">
+    		<p>ダウンロードするユーザ名を選択して下さい</p>
+    		<form id="csv-form" action="/admin/download/1" method="POST">
+		    	<select id="select-user" class="form-control btn-margin">
+		    	@for(user <- userList){
+	    			<option value="@user.userId">@user.userName</option>
+		    	}
+		    	</select>
+	    	</form>
+	    	<form id="delete-form" action="/admin/user/delete/1" method="POST">
+	    	</form>
+    	</div>
+	    	<div class="clear"></div>
+	    <button id="download-btn" class="btn btn-success btn-margin btn-lg col-xs-offset-2 col-xs-8 col-md-offset-4 col-md-4">CSVダウンロード</button>
+	    <button id="delete-btn" class="btn btn-danger btn-margin btn-lg col-xs-offset-2 col-xs-8 col-md-offset-4 col-md-4">ユーザを削除する</button>
+	    
+	    }
+	    <div class="clear" style="color:red;">@{message}</div>
+	    <button onclick="location.href='/admin/initial'" class="btn btn-default btn-margin btn-lg col-xs-offset-2 col-xs-8 col-md-offset-5 col-md-2">設問を登録する</button>
+    </div>
+}
+
+<script type="text/javascript">
+	$(function(){
+		$("#select-user").bind('change',function(){
+			var userId = $(this).val();
+			$("#csv-form").attr("action","/admin/download/"+userId);
+			$("#delete-form").attr("action","/admin/user/delete/"+userId);
+		});
+
+		$("#download-btn").click(function(){
+			$("#csv-form").submit();
+		});
+
+		$("#delete-btn").click(function(){
+			$("#delete-form").submit();
+		});
+	});
+</script>

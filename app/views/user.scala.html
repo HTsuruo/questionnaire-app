@@ -1,0 +1,39 @@
+@(user :models.UserModel)
+
+@import utils._
+
+@main("ホーム画面") {
+	<div class="text-center" id="home">
+		@if(user.isFin){
+			<h3>こんにちは @{user.userName} さん。</h3>
+			<p>今日も頑張りましょう</p>
+			
+			<button type="button" onclick="location.href='/question/@user.userId/1'" class="btn btn-primary btn-lg col-xs-offset-1 col-xs-10 col-md-offset-4 col-md-4" style="margin-bottom:20px;">
+				  「身体活動テスト」を始める <i class="glyphicon glyphicon glyphicon-hand-right"></i>
+			</button>
+			<div class="clear"></div>
+			<p>最終受験日 : @QuestionUtil.getLatestShintaiDate(user.userId)</p>
+			
+			<button type="button" onclick="location.href='/question/@user.userId/2'" class="btn btn-primary btn-lg col-xs-offset-1 col-xs-10 col-md-offset-4 col-md-4" style="margin-bottom:20px;">
+				  「気分状態テスト」を始める <i class="glyphicon glyphicon glyphicon-hand-right"></i>
+			</button>
+			<div class="clear"></div>
+			<p>最終受験日 : @QuestionUtil.getLatestPanasDate(user.userId)</p>
+			
+			<button type="button" onclick="location.href='/question/@user.userId/3'" class="btn btn-primary btn-lg col-xs-offset-1 col-xs-10 col-md-offset-4 col-md-4" style="margin-bottom:20px;">
+				  「健康状態テスト」を始める <i class="glyphicon glyphicon glyphicon-hand-right"></i>
+			</button>
+			<p class="clear">最終受験日 : @QuestionUtil.getLatestWho5Date(user.userId)</p>
+		}else{
+			<h3>ようこそ @{user.userName} さん。</h3>
+			<p>次は「テスト@{user.finCount+1}」です</p>
+			<p>解答済 : @{user.finCount} / 11</p>
+			<button type="button" onclick="location.href='/question/@user.userId/@{user.finCount+1}'" class="btn btn-primary btn-lg btn-margin col-xs-offset-2 col-xs-8 col-md-offset-4 col-md-4">
+				  テストを始める <i class="glyphicon glyphicon glyphicon-hand-right"></i>
+			</button>
+		}
+		<button type="button" onclick="location.href='/'" class="btn btn-default btn-lg col-xs-offset-3 col-xs-6 col-md-offset-5 col-md-2">
+			<i class="glyphicon glyphicon-log-out"></i> Log Out
+		</button>
+	</div>
+}

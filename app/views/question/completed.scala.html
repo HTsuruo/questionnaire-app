@@ -1,0 +1,42 @@
+@(user :models.UserModel, q: models.Question)
+
+@import utils._
+
+@main("回答完了") {
+		@if(user.isFin){
+			<div class="text-center" style="margin-bottom:50px;">
+			   <h2>おつかれさまでした。</h2>
+			   @if(q.questionId==1){
+			   		<p>「身体活動テスト」は完了しました</p>
+			   }else{
+			    　@if(q.questionId==2){
+			   		<p>「気分状態テスト」は完了しました</p>
+			   }else{
+			     @if(q.questionId==3){
+			   		<p>「健康状態テスト」は完了しました</p>
+			   		}
+			   }
+			   }
+			   
+			   <p>テストは以上で終了となります。お疲れ様でした。</p>
+		   </div>
+		   <button type="button" onclick="location.href='/user/@user.userId'" class="btn btn-default col-xs-offset-2 col-xs-8 col-md-offset-4 col-md-4">
+			  <i class="glyphicon glyphicon-triangle-left"></i>ホームへ戻る
+			</button>
+		}else{
+		   <div class="text-center" style="margin-bottom:50px;">
+			   <h2>おつかれさまでした。</h2>
+			   @if(q.questionId!=11){
+			   		<p>「テスト@{q.questionId}」は完了しました</p>
+			   }
+			   <p>次のテストを続けて行いますか?</p>
+		   </div>
+		   <button type="button" onclick="location.href='/question/@user.userId/@{q.questionId+1}'" class="btn btn-success btn-margin col-xs-offset-2 col-xs-8 btn btn-default col-xs-offset-2 col-xs-8  col-md-offset-4 col-md-4">
+			  	次のテストへ<i class="glyphicon glyphicon-triangle-right"></i>
+			</button>
+		   <button type="button" onclick="location.href='/user/@user.userId'" class="btn btn-default btn-margin col-xs-offset-2 col-xs-8 btn btn-default col-xs-offset-2 col-xs-8  col-md-offset-4 col-md-4">
+			  <i class="glyphicon glyphicon-triangle-left"></i>ホームへ戻る
+			</button>
+	   }
+	   
+}
